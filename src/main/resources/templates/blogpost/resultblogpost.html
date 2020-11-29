@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Result Page</title>
+<div th:replace="../fragments/styling :: head-style"></div>
+</head>
+<body>
+
+	<div th:replace="../fragments/navbar :: navbar"></div>
+
+	<div class="container">
+		<h1>Here is Your Blog!!!</h1>
+
+		<p>Thank you for your submisssion!</p>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 th:text="${title}"></h1>
+						<h1 th:text="${id}"></h1>
+					</div>
+					<div class="panel-body">
+						<strong><p th:text="${author}" /></strong>
+						<p th:text="${blogEntry}" />
+					</div>
+					<div class="panel-footer">
+						<!-- Link to Update -->
+						<!-- Link to Show  -->
+						<!--  Link to Destroy -->
+						<a th:href="@{/}">
+							<button class="btn btn-success">Back To Home Page</button>
+						</a> 
+						
+						 <a th:href="@{/blogposts/{id}(id=${id})}">  <!-- --> 
+							<!-- <button class="btn btn-primary">Edit Your new Post</button> -->
+							<button type="submit" class="btn btn-warning">Edit Your new Post</button>
+						</a>
+						
+						<a th:href="@{/blogposts/new}">
+							<button class="btn btn-primary">Submit a New Blog Post</button>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="../fragments/styling :: body-links"></div>
+</body>
+</html>
